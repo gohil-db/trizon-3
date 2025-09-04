@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trizon – IT Consulting & SAP Advisory</title>
+  <meta name="description" content="Trizon is an IT consulting company delivering SAP S/4HANA, AI, Generative AI, Agentic AI, and digital transformation services for measurable business impact." />
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #7c3aed;
+      --accent: #f59e0b;
+      --accent-dark: #d97706;
+      --light-bg: #f8fafc;
+      --dark-text: #1e293b;
+      --light-text: #64748b;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark-text);
+      background-color: var(--white);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    
+    /* Navigation */
+    .navbar {
+      background-color: var(--white);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 0;
+    }
+    
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--primary) !important;
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      color: var(--dark-text) !important;
+      padding: 0.5rem 1rem !important;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary) !important;
+    }
+    
+    .navbar .btn {
+      background-color: var(--accent);
+      border: none;
+      color: var(--white);
+      font-weight: 500;
+      padding: 0.6rem 1.5rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar .btn:hover {
+      background-color: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(124, 58, 237, 0.85) 100%), 
+                  url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: var(--white);
+      padding: 7rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .hero h1 span {
+      color: var(--accent);
+      position: relative;
+    }
+    
+    .hero-badge {
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+    
+    .hero-content-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 2rem;
+      color: var(--white);
+    }
+    
+    /* Buttons */
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      padding: 0.8rem 1.8rem;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    .btn-light {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: var(--primary);
+      border: none;
+      padding: 0.8rem 1.8rem;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-light:hover {
+      background-color: var(--white);
+      color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    /* Cards */
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+    }
+    
+    .icon-bubble {
+      width: 70px;
+      height: 70px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+    
+    /* Section Titles */
+    .section-title {
+      position: relative;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      color: var(--dark-text);
+    }
+    
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      margin-top: 15px;
+      border-radius: 2px;
+    }
+    
+    .section-title.center:after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .section-subtitle {
+      color: var(--light-text);
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+    
+    /* Services Section */
+    .services-section {
+      background: linear-gradient(rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.9)), 
+                  url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
+      padding: 5rem 0;
+    }
+    
+    /* Stats Section */
+    .stats {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(124, 58, 237, 0.9) 100%), 
+                  url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: var(--white);
+      padding: 5rem 0;
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Approach Section */
+    .approach-section {
+      background: linear-gradient(rgba(248, 250, 252, 0.95), rgba(248, 250, 252, 0.95)), 
+                  url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
+      padding: 5rem 0;
+      position: relative;
+    }
+    
+    /* Expertise Section */
+    .expertise-section {
+      background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                  url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
+      padding: 5rem 0;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(124, 58, 237, 0.9) 100%), 
+                  url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: var(--white);
+      padding: 5rem 0;
+      text-align: center;
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(rgba(30, 41, 59, 0.95), rgba(30, 41, 59, 0.95)), 
+                  url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: var(--white);
+      padding: 4rem 0 2rem;
+    }
+    
+    footer a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    footer a:hover {
+      color: var(--white);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      margin-top: 3rem;
+    }
+    
+    /* Utilities */
+    .rounded-lg {
+      border-radius: 16px;
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-content-box {
+        margin-top: 2rem;
+      }
+      
+      .stat-number {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><span class="text-gradient">Trizon</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+           <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Digital Marketing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#expertise">AI and Automation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Digital Transformation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">SAP Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Managed Business Services</a></li>        
+          <li class="nav-item"><a class="btn ms-lg-2" href="#contact">Talk to Us</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="hero-badge"><i class="bi bi-stars me-2"></i>Where Digital Transformation Meets Real Business Impact</span>
+          <h1>Empowering Businesses with <span>SAP, AI</span> & Strategic Guidance</h1>
+          <p class="lead mb-4">Trizon is an IT consulting company dedicated to empowering businesses through innovative technology solutions and strategic guidance. Our expertise spans across SAP S/4HANA, AI, Generative AI, Agentic AI, and other cutting-edge technologies that help organizations thrive in today's fast-paced digital landscape.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#services" class="btn btn-light"><i class="bi bi-rocket-takeoff me-2"></i>Explore Services</a>
+            <a href="#contact" class="btn btn-outline-light"><i class="bi bi-telephone me-2"></i>Contact Us</a>
+          </div>
+        </div>
+        <div class="col-lg-5 mt-5 mt-lg-0">
+          <div class="hero-content-box">
+            <h5 class="fw-bold mb-3">What We Do</h5>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-warning me-2"></i>SAP S/4HANA consulting, implementation & migration</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-warning me-2"></i>AI, Generative AI & Agentic AI solutions</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-warning me-2"></i>Digital marketing & automation</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-warning me-2"></i>Program / project management</li>
+              <li class="mb-0"><i class="bi bi-check-circle-fill text-warning me-2"></i>Application Managed Services (AMS)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <h2 class="section-title center">Our Services</h2>
+          <p class="section-subtitle">We are proud to be a trusted partner to our global customers, delivering solutions that drive measurable results.</p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4">
+            <div class="icon-bubble mx-auto"><i class="bi bi-bullseye"></i></div>
+            <h5 class="fw-bold">Digital Marketing</h5>
+            <p>Growth-focused strategies and campaigns across channels to maximize your digital presence and ROI.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4">
+            <div class="icon-bubble mx-auto"><i class="bi bi-robot"></i></div>
+            <h5 class="fw-bold">AI & Automation</h5>
+            <p>Identify high-ROI automation opportunities and implement AI solutions that transform operations.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4">
+            <div class="icon-bubble mx-auto"><i class="bi bi-layers"></i></div>
+            <h5 class="fw-bold">Digital Transformation</h5>
+            <p>End-to-end roadmap, execution, and change management for successful digital transformation.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4">
+            <div class="icon-bubble mx-auto"><i class="bi bi-gear"></i></div>
+            <h5 class="fw-bold">SAP Advisory Services</h5>
+            <p>Expert guidance on SAP implementation, optimization, and migration strategies.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4">
+            <div class="icon-bubble mx-auto"><i class="bi bi-headset"></i></div>
+            <h5 class="fw-bold">Managed Services</h5>
+            <p>Comprehensive application management and support services for business continuity.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4">
+            <div class="icon-bubble mx-auto"><i class="bi bi-kanban"></i></div>
+            <h5 class="fw-bold">Project Management</h5>
+            <p>Expert program and project management to ensure successful delivery and implementation.</p>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR APPROACH -->
+  <section id="approach" class="approach-section">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <h2 class="section-title center">Our Approach</h2>
+          <p class="section-subtitle">How we deliver transformative solutions for your business</p>
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <div class="card h-100 border-0 p-4">
+            <div class="card-body">
+              <h4 class="mb-4">Strategic Partnership</h4>
+              <p class="lead mb-4">
+                Our approach blends <span class="text-primary fw-bold">industry best practices</span> with a deep understanding of <span class="text-primary fw-bold">emerging trends</span>, 
+                ensuring that our clients remain <span class="text-primary fw-bold">competitive, resilient, and agile</span> in their markets.
+              </p>
+              <p class="mb-4">
+                We take pride in our client-centric philosophy, 
+                transparent communication, and commitment to delivering exceptional outcomes.
+              </p>
+              <p>
+                We inspire enterprise innovation through 
+                <span class="text-primary fw-bold">Advisory, Implementation, Test Automation, Change Management,</span> 
+                and <span class="text-primary fw-bold">Managed Services</span>—all designed to maximize efficiency and 
+                deliver a higher Return on Investment (ROI).
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card h-100 border-0 p-4">
+            <div class="card-body">
+              <h4 class="mb-4">Roadmaps to Measurable ROI</h4>
+              <p class="lead mb-4">Beyond ERP, we provide <span class="text-primary fw-bold">digital transformation roadmaps, readiness assessments, governance frameworks, and digital marketing strategies</span> that keep our clients competitive, agile, and future-ready.</p>
+              <p class="mb-4">Whether you're looking to optimize processes, modernize technology, or accelerate growth, our solutions are designed to deliver measurable ROI and long-term success.</p>
+              <p>Our consultants bring more than technical knowledge — they bring <span class="text-primary fw-bold">thought leadership, global experience, and a client-first mindset.</span> We pride ourselves on transparent communication, proven methodologies, and delivering projects on time and within budget.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE / USP -->
+  <section id="expertise" class="expertise-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <h2 class="section-title mb-4">Deep SAP & AI Expertise</h2>
+          <p class="mb-4">At Trizon we empower businesses of every size — from small startups to global enterprises — to thrive in today's fast-moving digital world. With <span class="text-primary fw-bold">25+ years of SAP and IT consulting expertise</span>, leadership experience at Big 4 consulting firms (IBM, Accenture, Capgemini), and a proven track record serving <span class="text-primary fw-bold">50+ global clients</span>, we are your trusted partner for transformation.</p>
+          <p class="mb-0">We specialize in Digital Marketing, Digital Transformation, SAP Advisory, AI & AI automation, SAP S/4HANA consulting, implementation, migration, and project management, helping customers unlock the full value of ERP in both public and private cloud environments. Our team also leverages SAP BTP, AI, Generative AI, and Agentic AI to deliver smarter automation, predictive insights, and innovation at scale.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card text-center p-4 h-100">
+                <div class="icon-bubble mx-auto"><i class="bi bi-cloud-check"></i></div>
+                <h5 class="fw-bold mb-3">S/4HANA Cloud</h5>
+                <p class="mb-0">Greenfield, brownfield, selective data transition for public and private cloud environments.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card text-center p-4 h-100">
+                <div class="icon-bubble mx-auto"><i class="bi bi-boxes"></i></div>
+                <h5 class="fw-bold mb-3">SAP BTP & Integration</h5>
+                <p class="mb-0">Extensions, APIs, event-driven architectures and seamless integration solutions.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card text-center p-4 h-100">
+                <div class="icon-bubble mx-auto"><i class="bi bi-robot"></i></div>
+                <h5 class="fw-bold mb-3">AI & Agentic AI</h5>
+                <p class="mb-0">Intelligent automation, AI copilots, and predictive insights for data-driven decisions.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card text-center p-4 h-100">
+                <div class="icon-bubble mx-auto"><i class="bi bi-clipboard2-check"></i></div>
+                <h5 class="fw-bold mb-3">PMO & Governance</h5>
+                <p class="mb-0">Delivery excellence with proven methodologies and robust governance frameworks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats py-5">
+    <div class="container py-4">
+      <div class="row g-4 text-center">
+        <div class="col-6 col-lg-3">
+          <div class="stat-number">25+</div>
+          <div class="h5">Years in SAP & IT</div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-number">50+</div>
+          <div class="h5">Global Clients</div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-number">3</div>
+          <div class="h5">Big 4 Leadership</div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-number">100%</div>
+          <div class="h5">Client-First Mindset</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="cta-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center">
+          <h2 class="mb-4">Don't just adapt to change — lead it.</h2>
+          <p class="lead mb-5">Partner with Trizon, and let's transform your business together. Contact us today and start writing your success story.</p>
+          <a href="#" class="btn btn-light btn-lg"><i class="bi bi-calendar-check me-2"></i>Book a Discovery Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h4 class="text-white mb-4"><span class="text-gradient">Trizon</span></h4>
+          <p>Transforming businesses through innovative technology solutions and strategic guidance since 1999.</p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="#" class="text-white"><i class="bi bi-linkedin fs-5"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-twitter fs-5"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-facebook fs-5"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-instagram fs-5"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <h5 class="text-white mb-4">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#home">Home</a></li>
+            <li class="mb-2"><a href="#services">Services</a></li>
+            <li class="mb-2"><a href="#expertise">Expertise</a></li>
+            <li class="mb-2"><a href="#approach">Approach</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="text-white mb-4">Services</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#">SAP Consulting</a></li>
+            <li class="mb-2"><a href="#">AI Solutions</a></li>
+            <li class="mb-2"><a href="#">Digital Marketing</a></li>
+            <li class="mb-2"><a href="#">Managed Services</a></li>
+            <li><a href="#">Project Management</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <h5 class="text-white mb-4">Contact Info</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>123 Tech Street, San Francisco, CA</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i>+1 (555) 123-4567</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@trizon.com</li>
+            <li><i class="bi bi-clock me-2"></i>Mon-Fri: 9AM - 5PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        <p class="mb-0">© <span id="year"></span> Trizon Consulting. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
